@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the development branch for the Rest Event Platform.
 
-## Available Scripts
+## Design Specs for Project
+[See Design Specs](https://xd.adobe.com/spec/aa269db1-f4a5-41e5-4872-a1d41ea658ce-dc17 "Adobe XD Link")
 
-In the project directory, you can run:
+## How to contribute
 
-### `npm start`
+First, thanks for contributing to this project. We appreciate your interest in our mini project. 
+If you are new to contribution we advice you `clone` this repo by running the command in your `cli`.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+git clone https://github.com/wigxel/rest-event-frontend.git rest-events-frontend
+``` 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Secondly, We issue out _tasks_ from the `issues` tabs in the following ways. Every issue has got a `label` attached to them for easy sorting and development.
 
-### `npm test`
+if you are working on a feature like a card design, the label should be `ui components` you need to: 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. create a new branch: 
+```bash
+git checkout -b feat/cards
+```
 
-### `npm run build`
+2. after creating the component use the commit message convention for example: 
+```bash
+git commit -m 'feat(rest-event): created a card component'
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. git push to `develop` branch with the command below, so the commit can be reviewed. 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```bash
+git push -u origin develop
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+if you don't understand how to use the commit convention use:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```bash
+ npx git-cz
+```
