@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         font-size: 14px;
-        font-family: 'Roboto Mono', monospace, sans-serif;
+        font-family: 'Quicksand', 'Lato', sans-serif;
     }
 
     a:hover {
