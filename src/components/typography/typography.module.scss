@@ -1,0 +1,29 @@
+%heading {
+    color: #464646
+}
+
+.h1 {
+    @extend %heading;
+    font-size: 45px;
+}
+
+.h2 {
+    @extend %heading;
+    font-size: 35px;
+}
+
+.h3 {
+    @extend %heading;
+    font-size: 25px; 
+    font-weight: 300;
+}
+
+.h4 {
+    @extend %heading;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.paragraph {
+    font-size: 16px;
+}
