@@ -1,21 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import StyledNav from '../styles/StyledNav';
+import logo from '../assets/images/logo@2x.png';
 
 const Nav = () => {
   return (
     <StyledNav>
-      <img src="" alt="logo" />
-      <ul>
-        <Link to="/">
-          <li>HOME</li>
-        </Link>
-        <Link to="/login">
-          <li>LOGIN</li>
-        </Link>
-        <Link to="/signup">
-          <li>SIGNUP</li>
-        </Link>
+      <img src={logo} alt="logo" />
+      <ul className="tab">
+        <li>
+          <Link to="/">HOME</Link>
+        </li>
+        <li>
+          <Link to="/login">LOGIN</Link>
+        </li>
+        <li>
+          <Link to="/signup">SIGNUP</Link>
+        </li>
       </ul>
     </StyledNav>
   );

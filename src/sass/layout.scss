@@ -1,0 +1,26 @@
+.see-borders , .see-borders * {
+    border: solid 1px black !important;
+}
+
+.stack {
+    --gap: 1rem;
+
+    &.stack-sm {
+        --gap: .5rem;
+    }
+
+    >*+* {
+        margin-top: var(--gap);
+    }
+}
+
+.tab {
+    >*+* {
+        margin-left: var(--tab-gap, 15px);
+    }
+
+    &.tab-larger {
+        --tab-gap: 30px;
+    }
+}
+

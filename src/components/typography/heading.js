@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./typography.module.scss";
+import React from 'react';
+import styles from './typography.module.scss';
 
 export const H1 = props => {
   return (

@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import GlobalStyle from '../styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
-import { Light, Dark } from '../styles/Theme';
-import Nav from './Nav';
-import Home from '../pages/Home';
-import Auth from '../pages/Auth';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import './sass/app.scss';
+import { Light } from './styles/Theme';
+import Nav from './components/Nav';
+import Home from './views/Home';
+import Auth from './views/Auth';
 
 function App() {
   return (
@@ -16,7 +17,6 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/:authName" component={Auth} />
         </Switch>
-        <GlobalStyle />
       </BrowserRouter>
     </ThemeProvider>
   );
