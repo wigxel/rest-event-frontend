@@ -1,7 +1,9 @@
 const Generic = {
   primary: '#705DF5',
-  accent: '#FFAA00'
+  accent: '#FFAA00',
+  danger: '#E56464'
 };
+
 const Light = {
   bgcolorinverse: '#cdbfde',
   bgcolor: '#fff',
