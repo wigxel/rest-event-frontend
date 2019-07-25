@@ -37,3 +37,11 @@ if you don't understand how to use the commit convention use:
 ```bash
  npx git-cz
 ```
+
+
+## Component Development & Testing
+We are using **storybook-js** for development and testing of the `UI Components`. To start the storybook server use the command.
+```bash
+npm run storybook
+```
+After the setup is done. You should navigate to the the `storybook/index.stories.js`. You should know what happens next.
