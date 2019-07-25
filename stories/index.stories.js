@@ -4,25 +4,22 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import { ThemeProvider } from 'styled-components';
-import { Light } from '../src/styles/Theme';
-
 import {
   Button,
   IconButton,
   CircleButton
 } from '../src/components/forms/buttons';
+import { H1, H2 } from '../src/components/typography/heading';
+import { P } from '../src/components/typography/text';
 import { Welcome } from '@storybook/react/demo';
+import { Theme } from './styles/StyleComponents';
 
 storiesOf('Welcome', module).add('to Storybook', () => (
-  <Welcome showApp={linkTo('Button')} />
+  <div>
+    <H2>The Design Lab for Project UI components</H2>
+    <P>It all begins from the first component.</P>
+  </div>
 ));
-
-const Theme = props => (
-  <ThemeProvider theme={Light}>
-    <>{props.children}</>
-  </ThemeProvider>
-);
 
 storiesOf('Button', module)
   .add('with text', () => (
@@ -45,3 +42,5 @@ storiesOf('Button', module)
       <CircleButton icon="home" onClick={() => alert('clicking button')} />
     </Theme>
   ));
+
+import './Forms';

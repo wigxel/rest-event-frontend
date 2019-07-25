@@ -14,6 +14,7 @@ const SearchStyle = styled.div`
     height: 50px;
     color: white;
     text-indent: 20px;
+    font-size: 16px;
     background: transparent;
     border: solid 1px white;
 
@@ -26,10 +27,22 @@ const SearchStyle = styled.div`
     }
   }
 
-  > div {
+  > .search-base {
     height: 50px;
+    display: flex;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
     background-color: white;
     color: ${props => props.theme.primary};
+
+    .tags {
+      flex: 1;
+      display: flex;
+      margin-left: 1rem;
+      justify-content: flex-start;
+    }
 
     a {
       padding: 0.5em 0.5em;
@@ -48,9 +61,9 @@ export const SearchComponent = props => {
   return (
     <SearchStyle {...props}>
       <input type="text" placeholder="Find Vendor..." />
-      <div className="flex items-center px-5">
+      <div className="search-base">
         <b>Search Tags:</b>
-        <div className="ml-2 flex-1 flex flex-start">
+        <div className="tags">
           <a>#african-dishes</a>
           <a>#bouquet</a>
           <a>#glamour</a>
@@ -59,3 +72,6 @@ export const SearchComponent = props => {
     </SearchStyle>
   );
 };
+
+export * from './inputs';
+export * from './buttons';
