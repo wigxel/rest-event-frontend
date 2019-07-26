@@ -1,15 +1,25 @@
+@import './colors';
 @import './layout.scss';
 
 :root {
   --heading-font: 'Quicksand', sans-serif;
   --text-font: 'Lato', 'Avenir', 'Segoe UI', 'Helvetica Neue', sans-serif;
   --heading-color: #464646;
+  --primary-color: #{$primary-color};
+  --text-color: '#878787';
+  --grey: #878787;
 }
 
 body {
   margin: 0;
   font-size: 16px;
+  font-weight: 300;
+  color: var(--text-color);
   font-family: var(--text-font);
+}
+
+a {
+  color: var(--primary-color);
 }
 
 @import './tailwind.min.css'

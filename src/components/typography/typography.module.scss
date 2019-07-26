@@ -1,10 +1,9 @@
 %heading {
     font-family: 'Quicksand', 'Montserrat', sans-serif;
-    margin-bottom: 1rem;
     
-    & + .paragraph {
-        margin-top: 0;
-    }
+    // & + .paragraph {
+        // margin-top: 0;
+    // }
 }
 
 .h1 {
@@ -32,6 +31,5 @@
 }
 
 .paragraph {
-    font-size: 16px;
     font-family: 'Lato', sans-serif;
 }

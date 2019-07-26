@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import MaterialIcon from 'material-icons-react';
+import { fullWidth } from '../../styles/helpers';
 
 const ButtonStyle = styled.button`
   background-color: ${props => props.theme.accent};
@@ -39,6 +40,7 @@ const ButtonStyle = styled.button`
       height: 50px;
       border-radius: 50%;
     `}
+  ${fullWidth()}
 `;
 
 export const Button = props => {

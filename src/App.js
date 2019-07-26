@@ -15,7 +15,7 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/:authName" component={Auth} />
+          <Route exact path="/login" component={Auth} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>

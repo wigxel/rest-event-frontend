@@ -29,7 +29,7 @@ export const debug = a => {
 
 export const trace = (info = '') => x => {
   // eslint-disable-next-line
-  console.info(x, info);
+  console.info(`${info}:`, x);
   return x;
 };
 

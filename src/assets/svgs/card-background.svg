@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="449" height="441" viewBox="0 0 449 441">
+  <defs>
+    <filter id="Rectangle_51" x="-51" y="-40" width="551" height="543" filterUnits="userSpaceOnUse">
+      <feOffset dy="11" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="17" result="blur"/>
+      <feFlood flood-color="#3e3e3e" flood-opacity="0.231"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_51)">
+        <rect id="Rectangle_51-2" data-name="Rectangle 51" width="449" height="441" rx="12" transform="translate(459 164)" fill="#fff"/>
+      </g>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_4" data-name="Mask Group 4" transform="translate(-459 -164)" clip-path="url(#clip-path)">
+    <path id="Path_56" data-name="Path 56" d="M713.313-97.264c-34.566-.981-46.422,21.723-9.647,50.465s125.791-6.536,97.99,24.333S859.942,21.2,824.972,66.2s57.59,84.857,76.291,103.382c0-88.329,4.28-266.842,4.28-266.842S731.53-96.747,713.313-97.264Z" transform="translate(30 237)" fill="#705df5"/>
+    <g id="Group_71" data-name="Group 71" transform="translate(2 2)">
+      <path id="Path_57" data-name="Path 57" d="M438.25,584.4,512.123,501.5" fill="none" stroke="#e56464" stroke-linecap="round" stroke-width="10"/>
+      <path id="Path_58" data-name="Path 58" d="M438.25,584.4,512.123,501.5" transform="translate(0 41)" fill="none" stroke="#e56464" stroke-linecap="round" stroke-width="10"/>
+      <path id="Path_59" data-name="Path 59" d="M438.25,584.4,512.123,501.5" transform="translate(37 41)" fill="none" stroke="#e56464" stroke-linecap="round" stroke-width="10"/>
+    </g>
+  </g>
+</svg>

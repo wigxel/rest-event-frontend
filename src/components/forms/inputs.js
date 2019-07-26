@@ -1,14 +1,9 @@
 import React from 'react';
 import MaterialIcon from 'material-icons-react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { trace } from '../../libs/helpers';
+import { fullWidth } from '../../styles/helpers';
 
-const fullWidth = () => props =>
-  props.fullwidth &&
-  css`
-    display: block;
-    width: 100%;
-  `;
 const InputStyle = styled.input`
   background-color: ${props => props.theme.whitesmoke};
   border: none;

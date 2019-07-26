@@ -1,21 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 import StyledNav from '../styles/StyledNav';
 import logo from '../assets/images/logo@2x.png';
 
+const NavLink = props => (
+  <Link activeClassName="active" {...props}>
+    {props.children}
+  </Link>
+);
+
 const Nav = () => {
   return (
-    <StyledNav>
+    <StyledNav className="main-nav">
       <img src={logo} alt="logo" />
-      <ul className="tab">
+      <ul className="tab nav-links">
         <li>
-          <Link to="/">HOME</Link>
+          <NavLink exact to="/">
+            HOME
+          </NavLink>
         </li>
         <li>
-          <Link to="/login">LOGIN</Link>
+          <NavLink to="/login">LOGIN</NavLink>
         </li>
         <li>
-          <Link to="/signup">SIGNUP</Link>
+          <NavLink to="/signup">SIGNUP</NavLink>
         </li>
       </ul>
     </StyledNav>
