@@ -29,9 +29,9 @@ const InputStyle = styled.input`
   ${fullWidth()}
 `;
 
-export const Input = props => {
-  return <InputStyle {...props} />;
-};
+export const Input = React.forwardRef((props, ref) => {
+  return <InputStyle {...props} ref={ref} />;
+});
 
 const IconInputStyle = styled.div`
   --input-mb: 0;

@@ -1,20 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useForm from 'react-hook-form';
+
 import Footer from '../components/Footer';
-import { trace } from '../libs/helpers';
-import { H2, P } from '../components/typography';
+import { log } from '../libs/helpers';
+import { H2, H3, P } from '../components/typography';
 import LoginCard from '../components/cards/LoginCard';
 import { Input, Button, Checkbox } from '../components/forms';
 
-const Auth = () => {
-  const [form, setForm] = useState({});
-  const [activeTab, setTab] = useState(false);
+const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
-  const updateForm = key => ({ target }) => {
-    setForm({ ...form, [key]: target.value });
-  };
-  const login = () => {
-    trace('The form')(form);
+const Auth = () => {
+  const [activeTab, setTab] = useState(false);
+  const { register, errors, handleSubmit } = useForm({
+    defaultValues: {
+      email: '',
+      password: ''
+    }
+  });
+
+  const onLogin = data => {
+    log(data, 'The data');
+    log(errors, 'Errors');
   };
   const toggle = () => setTab(!activeTab);
 
@@ -22,7 +29,20 @@ const Auth = () => {
     <>
       <div className="flex justify-center h-screen items-center">
         <LoginCard className="flex-1">
-          {activeTab ? (
+          {activeTab === 3 ? (
+            <>
+              <H3>Forgot Password?</H3>
+              <P small>We'll send you a help email. </P>
+              <br />
+              <Input type="email" placeholder="Enter Email" fullwidth />
+              <Button primary className="mr-2">
+                SEND
+              </Button>
+              <Button ghost onClick={() => setTab(false)}>
+                No Thanks
+              </Button>
+            </>
+          ) : activeTab ? (
             <>
               <H2>Join In</H2>
               <P small className="mb-5">
@@ -44,7 +64,7 @@ const Auth = () => {
               </Button>
             </>
           ) : (
-            <>
+            <form onSubmit={handleSubmit(onLogin)}>
               <H2 className="mb-0">Sign In</H2>
               <P small className="mb-5">
                 Don’t have an account?{' '}
@@ -52,25 +72,34 @@ const Auth = () => {
                   Sign Up
                 </a>
               </P>
+              {errors.password && errors.email && (
+                <P small className="text-red">
+                  Provide a valid username and password
+                </P>
+              )}
               <Input
                 type="text"
-                onChange={updateForm('username')}
+                name="email"
                 placeholder="E-mail Address"
+                ref={register({ required: true, pattern: emailRegex })}
                 fullwidth
               />
               <Input
                 type="password"
-                onChange={updateForm('password')}
+                name="password"
                 placeholder="Password"
+                ref={register({ required: true })}
                 fullwidth
               />
               <P small className="mb-5 -mt-2">
-                <Link to="">Forgot Password?</Link>
+                <a href="#forgot-password" onClick={() => setTab(3)}>
+                  Forgot Password?
+                </a>
               </P>
-              <Button primary fullwidth onClick={login}>
+              <Button primary fullwidth>
                 LOGIN
               </Button>
-            </>
+            </form>
           )}
         </LoginCard>
       </div>
