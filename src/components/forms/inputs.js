@@ -77,7 +77,7 @@ const IconInputStyle = styled.div`
 
 export const IconInput = props => {
   return (
-    <IconInputStyle {...props}>
+    <IconInputStyle large={props.large}>
       <span>
         <MaterialIcon icon={props.icon} color={props.color || '#a0a0f0'} />
       </span>

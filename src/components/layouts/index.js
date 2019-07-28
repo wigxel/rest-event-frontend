@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../styles/helpers';
+// import { media } from '../../styles/helpers';
 
 const JumbotronStyle = styled.div`
   min-height: calc(100vh - 80px);
@@ -9,20 +9,10 @@ const JumbotronStyle = styled.div`
 
 const FourColumnGridStyle = styled.section`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
+  grid-gap: 1.5rem;
   position: relative;
-  ${media.tabletLand`
-    grid-template-columns: repeat(3, 1fr);
-  `}
-
-  ${media.tabletPort`
-    grid-template-columns: repeat(2, 1fr);
-  `}
-
-  ${media.phone`
-    grid-template-columns: repeat(1, 1fr);
-  `}
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
 `;
 
 export const Jumbotron = props => {
@@ -35,4 +25,9 @@ export const Container = props => {
 
 export const FourColumnGrid = props => {
   return <FourColumnGridStyle {...props}>{props.children}</FourColumnGridStyle>;
+};
+
+export const VendorGroup = props => {
+  const Display = props.grid ? FourColumnGridStyle : () => <div />;
+  return <Display>{props.children}</Display>;
 };

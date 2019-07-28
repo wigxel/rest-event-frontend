@@ -6,8 +6,7 @@ import { H2, H4 } from '../components/typography/heading';
 import { Jumbotron, Container, FourColumnGrid } from '../components/layouts';
 
 import { VendorCard } from '../components/cards';
-
-import { generateVendors } from '../data/vendors';
+import { generateVendors } from '../libs/mocks/vendors';
 
 const Home = props => {
   return (
@@ -27,7 +26,9 @@ const Home = props => {
           <H2>Pick a vendor</H2>
           <H4>some outstanding vendors</H4>
           <FourColumnGrid className="py-5 mt-5">
-            {generateVendors(22).map(vendor => <VendorCard vendor={vendor} key={vendor.id} />)}
+            {generateVendors(22).map(vendor => (
+              <VendorCard vendor={vendor} key={vendor.id} />
+            ))}
           </FourColumnGrid>
         </Container>
       </main>

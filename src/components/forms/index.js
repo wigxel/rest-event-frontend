@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { log, trace } from '../../libs/helpers';
+import { onEnter } from '../../libs/helpers';
 
 const SearchStyle = styled.div`
   display: flex;
@@ -59,19 +59,21 @@ const SearchStyle = styled.div`
 `;
 
 export const SearchComponent = props => {
-  const handleSubmit = evt => {
-    if (evt.keyCode === 13) props.onSubmit(evt.target.value);
-  };
+  const handleSubmit = evt => props.onSubmit(evt.target.value);
 
   return (
     <SearchStyle {...props}>
-      <input type="text" placeholder="Find Vendor..." onKeyUp={handleSubmit} />
+      <input
+        type="text"
+        placeholder="Find Vendor..."
+        onKeyUp={onEnter(handleSubmit)}
+      />
       <div className="search-base">
         <b>Search Tags:</b>
         <div className="tags">
-          <a>#african-dishes</a>
-          <a>#bouquet</a>
-          <a>#glamour</a>
+          {['africandishes', 'bouquet', 'glamour'].map(e => (
+            <a href={`#${e}`}>#{e}</a>
+          ))}
         </div>
       </div>
     </SearchStyle>

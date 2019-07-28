@@ -57,3 +57,12 @@ export const filterKeys = (object = {}, keys = [], negate = false) => {
 
 export const isImage = (mimeType = '') =>
   /image\/(jpeg|png|jpg)/g.test(mimeType);
+
+/**
+ * triggers callback function when the Enter key is pressed
+ * @param {Function} fn the callback function
+ * @returns Function
+ */
+export const onEnter = fn => evt => {
+  if (evt.keyCode === 13) fn(evt);
+};
