@@ -3,7 +3,11 @@ import Footer from '../components/Footer';
 
 import { SearchComponent } from '../components/forms';
 import { H2, H4 } from '../components/typography/heading';
-import { Jumbotron, Container } from '../components/layouts';
+import { Jumbotron, Container, FourColumnGrid } from '../components/layouts';
+
+import { VendorCard } from '../components/cards';
+
+import { generateVendors } from '../data/vendors';
 
 const Home = props => {
   return (
@@ -22,6 +26,9 @@ const Home = props => {
         <Container>
           <H2>Pick a vendor</H2>
           <H4>some outstanding vendors</H4>
+          <FourColumnGrid className="py-5 mt-5">
+            {generateVendors(22).map(vendor => <VendorCard vendor={vendor} key={vendor.id} />)}
+          </FourColumnGrid>
         </Container>
       </main>
       <Footer />
