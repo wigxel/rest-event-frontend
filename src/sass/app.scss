@@ -1,5 +1,6 @@
 @import './colors';
 @import './layout.scss';
+@import './input-range';
 
 :root {
   --heading-font: 'Quicksand', sans-serif;
@@ -20,6 +21,12 @@ body {
 
 a {
   color: var(--primary-color);
+}
+
+.text {
+  &-primary {
+    color: var(--primary-color, indianred);
+  }
 }
 
 @import './tailwind.min.css'

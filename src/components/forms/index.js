@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { log, trace } from '../../libs/helpers';
 
 const SearchStyle = styled.div`
   display: flex;
@@ -58,9 +59,13 @@ const SearchStyle = styled.div`
 `;
 
 export const SearchComponent = props => {
+  const handleSubmit = evt => {
+    if (evt.keyCode === 13) props.onSubmit(evt.target.value);
+  };
+
   return (
     <SearchStyle {...props}>
-      <input type="text" placeholder="Find Vendor..." />
+      <input type="text" placeholder="Find Vendor..." onKeyUp={handleSubmit} />
       <div className="search-base">
         <b>Search Tags:</b>
         <div className="tags">
@@ -71,6 +76,10 @@ export const SearchComponent = props => {
       </div>
     </SearchStyle>
   );
+};
+
+SearchComponent.defaultProps = {
+  onSubmit: () => {}
 };
 
 export * from './inputs';

@@ -1,6 +1,6 @@
 import React from 'react';
 import MaterialIcon from 'material-icons-react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { trace } from '../../libs/helpers';
 import { fullWidth } from '../../styles/helpers';
 
@@ -27,6 +27,12 @@ const InputStyle = styled.input`
     box-shadow: 0 3px 6px rgba(112, 93, 245, 0.16);
   }
   ${fullWidth()}
+  ${props =>
+    props.large &&
+    css`
+      height: 50px;
+      font-size: 16px;
+    `}
 `;
 
 export const Input = React.forwardRef((props, ref) => {
@@ -39,6 +45,7 @@ const IconInputStyle = styled.div`
   position: relative;
   margin-bottom: 1rem;
   ${fullWidth()}
+
   span {
     position: absolute;
     display: inline-flex;
@@ -50,16 +57,27 @@ const IconInputStyle = styled.div`
     width: 28px;
     height: 28px;
     color: ${a => a.theme.primary};
-  }
 
+    ${props =>
+      props.large &&
+      css`
+        height: 38px;
+        width: 38px;
+      `}
+  }
   span + input {
     text-indent: 44px;
+    ${props =>
+      props.large &&
+      css`
+        text-indent: 54px;
+      `}
   }
 `;
 
 export const IconInput = props => {
   return (
-    <IconInputStyle>
+    <IconInputStyle {...props}>
       <span>
         <MaterialIcon icon={props.icon} color={props.color || '#a0a0f0'} />
       </span>
