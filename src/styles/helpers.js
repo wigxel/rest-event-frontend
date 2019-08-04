@@ -7,6 +7,8 @@ export const fullWidth = () => props =>
     width: 100%;
   `;
 
+export const color = (name) => props => props.theme[name]
+
 const sizes = {
     bigDestktop: 1800, // 1800 above
     tabletLand: 1200,

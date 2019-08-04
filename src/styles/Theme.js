@@ -10,7 +10,13 @@ const Light = {
   bgcolor: '#fff',
   color: '#2d2e2e',
   border: 'none',
+  heading: '#222222',
+  paragraph: Generic.grey,
   whitesmoke: '#F0F0F9',
+  skeleton: {
+    from: '#eee',
+    to: 'whitesmoke',
+  },
   ...Generic
 };
 
@@ -19,6 +25,12 @@ const Dark = {
   bgcolor: '#2d2e2e',
   color: '#fff',
   border: 'none',
+  heading: '#fff',
+  paragraph: Light.whitesmoke,
+  skeleton: {
+    from: '#3d3e3e',
+    to: '#2d2e2e',
+  },
   ...Generic
 };
 

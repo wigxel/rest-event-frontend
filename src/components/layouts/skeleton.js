@@ -1,23 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const skel = (name) => props => props.theme.skeleton[name]
+
 const SkeletonStyle = styled.div`
   background-size: 200px;
-  animation: skeleton 1s running infinite forwards linear;
-  background: linear-gradient(90deg, #e3dbf2, whitesmoke, #e3dbf2);
+  animation: skeleton 2s running infinite forwards linear;
+  background: linear-gradient(90deg, ${skel('from')}, ${skel('to')}, ${skel('from')});
 
   @keyframes skeleton {
     0% {
       background-position-x: 0px;
     }
 
-    50% {
+    25% {
       background-position-x: 50px;
     }
 
-    100% {
-      background-position-x: 200px;
+    50% {
+      background-position-x: 250px;
     }
+    75% { background-position-x: 250px }
+    100% { background-position-x: 250px }
   }
 `;
 

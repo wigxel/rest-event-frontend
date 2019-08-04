@@ -28,6 +28,6 @@ export const FourColumnGrid = props => {
 };
 
 export const VendorGroup = props => {
-  const Display = props.grid ? FourColumnGridStyle : () => <div />;
+  const Display = props.grid ? FourColumnGridStyle : ({ children }) => <div className="stack">{children}</div>;
   return <Display>{props.children}</Display>;
 };
