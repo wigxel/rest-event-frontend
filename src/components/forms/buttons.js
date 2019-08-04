@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import MaterialIcon from 'material-icons-react';
 import { fullWidth } from '../../styles/helpers';
+import { filterKeys } from '../../libs/helpers';
 
 const ButtonStyle = styled.button`
   background-color: ${props => props.theme.accent};
@@ -19,7 +20,7 @@ const ButtonStyle = styled.button`
   font-family: var(--heading-font, 'Quicksand');
 
   .material-icons {
-    margin-right: 15px;
+    margin-right: .5rem;
   }
 
   ${props =>
@@ -50,7 +51,7 @@ export const Button = props => {
 export const IconButton = props => {
   return (
     <Button {...props}>
-      <MaterialIcon {...props} icon={props.name} />
+      <MaterialIcon {...filterKeys(props, ['primary','danger'], true)} icon={props.name} />
       <span>{props.children}</span>
     </Button>
   );

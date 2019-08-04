@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 import Home from './views/Home';
 import Auth from './views/Auth';
 import Search from './views/Search';
+import VendorProfile from './views/VendorProfile';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Auth} />
           <Route exact path="/query" component={Search} />
+          <Route exact path="/vendor/:slug" component={VendorProfile} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>
