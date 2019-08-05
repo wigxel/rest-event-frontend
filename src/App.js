@@ -9,6 +9,7 @@ import Home from './views/Home';
 import Auth from './views/Auth';
 import Search from './views/Search';
 import VendorProfile from './views/VendorProfile';
+import VendorPage from './views/VendorPage';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Auth} />
           <Route exact path="/query" component={Search} />
-          <Route exact path="/vendor/:slug" component={VendorProfile} />
+          <Route exact path="/profile/:slug" component={VendorProfile} />
+          <Route exact path="/vendor/:slug" component={VendorPage} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>

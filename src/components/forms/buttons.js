@@ -51,16 +51,22 @@ export const Button = props => {
 export const IconButton = props => {
   return (
     <Button {...props}>
-      <MaterialIcon {...filterKeys(props, ['primary','danger'], true)} icon={props.name} />
+      <MaterialIcon {...filterKeys(props, ['color'])} icon={props.name} />
       <span>{props.children}</span>
     </Button>
   );
 };
 
+const iconProps = props => filterKeys(props, ['color', 'icon'])
+
 export const CircleButton = props => {
   return (
     <Button circle {...props}>
-      <MaterialIcon icon={props.icon} />
+      <MaterialIcon {...iconProps(props)} />
     </Button>
   );
 };
+
+export const BookButton = props => {
+  return (<IconButton color="white" name="add">BOOK</IconButton>)
+}

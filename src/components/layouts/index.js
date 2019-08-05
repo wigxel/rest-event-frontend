@@ -31,3 +31,5 @@ export const VendorGroup = props => {
   const Display = props.grid ? FourColumnGridStyle : ({ children }) => <div className="stack">{children}</div>;
   return <Display>{props.children}</Display>;
 };
+
+export * from './imageHolders'

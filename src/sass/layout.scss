@@ -15,12 +15,14 @@
 }
 
 .tab {
+    --tab-gap: .5rem;
+
     >*+* {
-        margin-left: var(--tab-gap, 15px);
+        margin-left: var(--tab-gap, .5rem);
     }
 
-    &.tab-larger {
-        --tab-gap: 30px;
+    &.tab-larger > * {
+        --tab-gap: 2rem;
     }
 }
 
