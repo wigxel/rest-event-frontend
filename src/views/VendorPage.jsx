@@ -55,7 +55,7 @@ export default function VendorProfile() {
                 formatLabel={value => `${3} star`}
               />
             <br/>
-						<IconButton name="add" color="white">MORE FROM VENDOR</IconButton>
+						<IconButton icon="add" color="white">MORE FROM VENDOR</IconButton>
 						{/*<H4>Calendar</H4>*/}
 					</StyledProfile>
 
@@ -67,7 +67,7 @@ export default function VendorProfile() {
 							</hgroup>
 							<div className="tab">
 								<BookButton />
-								<IconButton color="white" name="calendar_today">SCHEDULE</IconButton>
+								<IconButton color="white" icon="calendar_today">SCHEDULE</IconButton>
 							</div>
 						</section>
 						<CoverImage />

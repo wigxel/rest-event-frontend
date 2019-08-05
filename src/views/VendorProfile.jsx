@@ -74,8 +74,8 @@ export default function VendorProfile(props) {
 							<H4><b>{vendor.name.toUpperCase()}</b></H4>
 						</div>
 						<section className="tab flex"> 
-							<IconButton color="white" name="add" primary>BOOK VENDOR</IconButton>
-							<IconButton color="white" name="message">SEND MESSAGE</IconButton>
+							<IconButton color="white" icon="add" primary>BOOK VENDOR</IconButton>
+							<IconButton color="white" icon="message">SEND MESSAGE</IconButton>
 						</section>
 					</section>
 				</Container>

@@ -48,16 +48,16 @@ export const Button = props => {
   return <ButtonStyle {...props}>{props.children}</ButtonStyle>;
 };
 
+const iconProps = props => filterKeys(props, ['color', 'icon'])
+
 export const IconButton = props => {
   return (
     <Button {...props}>
-      <MaterialIcon {...filterKeys(props, ['color'])} icon={props.name} />
+      <MaterialIcon {...iconProps(props)} />
       <span>{props.children}</span>
     </Button>
   );
 };
-
-const iconProps = props => filterKeys(props, ['color', 'icon'])
 
 export const CircleButton = props => {
   return (
@@ -67,6 +67,6 @@ export const CircleButton = props => {
   );
 };
 
-export const BookButton = props => {
-  return (<IconButton color="white" name="add">BOOK</IconButton>)
+export const BookButton = () => {
+  return (<IconButton color="white" icon="add">BOOK</IconButton>)
 }
