@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components';
 import { color } from '../styles/helpers'
+import { Link } from 'react-router-dom';
 // import { trace, log } from '../libs/helpers'
 import { generateVendors } from '../libs/mocks'
 // import logo from '../assets/images/logo@2x.png'
@@ -55,7 +56,9 @@ export default function VendorProfile() {
                 formatLabel={value => `${3} star`}
               />
             <br/>
-						<IconButton icon="add" color="white">MORE FROM VENDOR</IconButton>
+						<Link to="/profile/dianas-food">
+							<IconButton icon="add" color="white">MORE FROM VENDOR</IconButton>
+						</Link>
 						{/*<H4>Calendar</H4>*/}
 					</StyledProfile>
 

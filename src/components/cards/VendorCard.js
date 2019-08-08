@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { H4 } from '../typography/heading';
 import { SkeletonWrapper } from '../layouts/skeleton';
@@ -94,9 +95,11 @@ export const VendorCardSkeleton = () => {
 
 export const VendorCard = ({ vendor }) => (
   <StyledVendorCard>
+    <Link to={vendor.getUrl()}>
     <figure>
       <img src={vendor.banner} alt="vendor banner" />
     </figure>
+    </Link>
     <figcaption>
       <img className="vendor-logo" src={vendor.logo} alt="Lo" />
       <H4 title={vendor.name} style={{ color: '#5F5F5F' }}>

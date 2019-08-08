@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { H2, P } from '../typography';
 import { SkeletonWrapper } from '../layouts/skeleton';
 import { color } from '../../styles/helpers';
+import { Link } from 'react-router-dom';
 // import { log } from '../../libs/helpers';
 
 const StyledVendorList = styled.article`
@@ -135,25 +136,27 @@ export const VendorListSkeleton = () => {
 };
 
 export const VendorList = (props) => (
-  <StyledVendorList {...props}>
-    <figure>
-      <img src={props.vendor.banner} alt="vendor banner" />
-    </figure>
-    <figcaption>
-      <div>
-        <H2 className="v-title" title={props.vendor.name}>
-          {props.vendor.name}
-        </H2>
-        <P>{props.vendor.description}</P>
-      </div>
-      <div className="v-info">
-        <P>Rating: <b>{props.vendor.rating}</b>/5</P>
+  <Link to={props.vendor.getUrl()}>
+    <StyledVendorList {...props}>
+      <figure>
+        <img src={props.vendor.banner} alt="vendor banner" />
+      </figure>
+      <figcaption>
         <div>
-          <img className="vendor-logo" src={props.vendor.logo} alt="Lo" />
+          <H2 className="v-title" title={props.vendor.name}>
+            {props.vendor.name}
+          </H2>
+          <P>{props.vendor.description}</P>
         </div>
-      </div>
-    </figcaption>
-  </StyledVendorList>
+        <div className="v-info">
+          <P>Rating: <b>{props.vendor.rating}</b>/5</P>
+          <div>
+            <img className="vendor-logo" src={props.vendor.logo} alt="Lo" />
+          </div>
+        </div>
+      </figcaption>
+    </StyledVendorList>
+  </Link>
 );
 
 VendorList.defaultProps = {
