@@ -1,40 +1,22 @@
 import React from 'react';
-import Footer from '../components/Footer';
 
-import { SearchComponent } from '../components/forms';
-import { H2, H4 } from '../components/typography/heading';
-import { Jumbotron, Container, FourColumnGrid } from '../components/layouts';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import Nav from '../components/Nav';
+import Landing from './Landing';
+import Auth from './Auth';
+import Search from './Search';
+import VendorProfile from './VendorProfile';
+import VendorPage from './VendorPage';
 
-import { VendorCard } from '../components/cards';
-import { generateVendors } from '../libs/mocks/vendors';
-
-const Home = props => {
+export default function Home() {
   return (
-    <div>
-      <Jumbotron className="flex justify-center flex-col items-center">
-        <div className="text-center text-white">
-          <H2>Book vendors for your events.</H2>
-          <H4>Just pick a category. search something out.</H4>
-        </div>
-        <SearchComponent
-          className="mt-5"
-          onSubmit={value => props.history.push('/query/', { value })}
-        />
-      </Jumbotron>
-      <main className="py-5">
-        <Container>
-          <H2>Pick a vendor</H2>
-          <H4>some outstanding vendors</H4>
-          <FourColumnGrid className="py-5 mt-5">
-            {generateVendors(22).map(vendor => (
-              <VendorCard vendor={vendor} key={vendor.id} />
-            ))}
-          </FourColumnGrid>
-        </Container>
-      </main>
-      <Footer />
-    </div>
+    <>
+      <Nav />
+      <Route exact path="/" component={Landing} />
+      <Route exact path="/login" component={Auth} />
+      <Route exact path="/query" component={Search} />
+      <Route exact path="/profile/:slug" component={VendorProfile} />
+      <Route exact path="/vendor/:slug" component={VendorPage} />
+    </>
   );
-};
-
-export default Home;
+}

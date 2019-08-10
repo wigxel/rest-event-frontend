@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useForm from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 import Footer from '../components/Footer';
 import { log } from '../libs/helpers';
@@ -95,9 +96,11 @@ const Auth = () => {
                   Forgot Password?
                 </a>
               </P>
-              <Button primary fullwidth>
-                LOGIN
-              </Button>
+              <Link to="/dashboard">
+                <Button primary fullwidth>
+                  LOGIN
+                </Button>
+              </Link>
             </form>
           )}
         </LoginCard>

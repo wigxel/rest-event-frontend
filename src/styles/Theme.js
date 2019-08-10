@@ -2,7 +2,9 @@ const Generic = {
   primary: '#705DF5',
   accent: '#FFAA00',
   danger: '#E56464',
-  grey: '#878787'
+  grey: '#878787',
+  greylight: '#848484',
+  navbar: '#FDFDFD'
 };
 
 const Light = {
@@ -15,7 +17,7 @@ const Light = {
   whitesmoke: '#F0F0F9',
   skeleton: {
     from: '#eee',
-    to: 'whitesmoke',
+    to: 'whitesmoke'
   },
   ...Generic
 };
@@ -29,7 +31,7 @@ const Dark = {
   paragraph: Light.whitesmoke,
   skeleton: {
     from: '#3d3e3e',
-    to: '#2d2e2e',
+    to: '#2d2e2e'
   },
   ...Generic
 };

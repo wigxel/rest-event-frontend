@@ -1,29 +1,22 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './sass/app.scss';
 import { Light } from './styles/Theme';
-import Nav from './components/Nav';
+
 import Home from './views/Home';
-import Auth from './views/Auth';
-import Search from './views/Search';
-import VendorProfile from './views/VendorProfile';
-import VendorPage from './views/VendorPage';
+import UserWorkspace from './views/UserWorkspace';
 
 function App() {
   return (
     <ThemeProvider theme={Light}>
-      <BrowserRouter className="App">
-        <Nav />
+      <Router className="App">
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Auth} />
-          <Route exact path="/query" component={Search} />
-          <Route exact path="/profile/:slug" component={VendorProfile} />
-          <Route exact path="/vendor/:slug" component={VendorPage} />
+          <Route exact path="/dashboard/(.*)?" component={UserWorkspace} />
+          <Route path="/" component={Home} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   );
 }
