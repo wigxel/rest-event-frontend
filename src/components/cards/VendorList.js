@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { H2, P } from '../typography';
 import { SkeletonWrapper } from '../layouts/skeleton';
-import { color } from '../../styles/helpers';
+import { color, CardStyle } from '../../styles/helpers';
 import { Link } from 'react-router-dom';
 // import { log } from '../../libs/helpers';
 
-const StyledVendorList = styled.article`
+const StyledVendorList = styled(CardStyle())`
   width: 100%;
   display: flex;
-  border-radius: 12px;
-  box-sizing: border-box;
-  background-color: ${color('bgcolor')};
-  padding: 18px 20px;
 
   figure {
     width: 100%;
@@ -64,11 +60,19 @@ const StyledVendorList = styled.article`
         color: ${color('accent')}
       }
     }
+    
+    a {
+        text-decoration: none;
+    }
 
     .v-title {
       color: ${color('heading')}
       margin-top: 0;
       margin-bottom: 1rem;
+      
+      &:hover {
+        text-decoration: underline;
+      }
 
       + p {
         height: 80px;
@@ -82,7 +86,8 @@ const StyledVendorList = styled.article`
           display: ;
           display: block;
           height: 30px;
-          background: linear-gradient(transparent 12px, ${a => a.theme.bgcolor});
+          background: linear-gradient(transparent 12px, ${a =>
+            a.theme.bgcolor});
           bottom: 0;
           position: absolute;
           width: 100%;
@@ -135,34 +140,36 @@ export const VendorListSkeleton = () => {
   );
 };
 
-export const VendorList = (props) => (
-  <Link to={props.vendor.getUrl()}>
-    <StyledVendorList {...props}>
-      <figure>
-        <img src={props.vendor.banner} alt="vendor banner" />
-      </figure>
-      <figcaption>
-        <div>
+export const VendorList = props => (
+  <StyledVendorList {...props}>
+    <figure>
+      <img src={props.vendor.banner} alt="vendor banner" />
+    </figure>
+    <figcaption>
+      <div>
+        <Link to={props.vendor.getUrl()}>
           <H2 className="v-title" title={props.vendor.name}>
             {props.vendor.name}
           </H2>
-          <P>{props.vendor.description}</P>
+        </Link>
+        <P>{props.vendor.description}</P>
+      </div>
+      <div className="v-info">
+        <P>
+          Rating: <b>{props.vendor.rating}</b>/5
+        </P>
+        <div>
+          <img className="vendor-logo" src={props.vendor.logo} alt="Lo" />
         </div>
-        <div className="v-info">
-          <P>Rating: <b>{props.vendor.rating}</b>/5</P>
-          <div>
-            <img className="vendor-logo" src={props.vendor.logo} alt="Lo" />
-          </div>
-        </div>
-      </figcaption>
-    </StyledVendorList>
-  </Link>
+      </div>
+    </figcaption>
+  </StyledVendorList>
 );
 
 VendorList.defaultProps = {
   vendor: {
     isPremium: false,
-    rating: 1,
+    rating: 1
   }
 };
 
@@ -173,7 +180,7 @@ VendorList.propTypes = {
     name: PropTypes.string.isRequired,
     banner: PropTypes.string.isRequired,
     isPremium: PropTypes.bool,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
   })
 };
 

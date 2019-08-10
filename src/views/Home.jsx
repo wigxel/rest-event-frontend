@@ -1,12 +1,12 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
-import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Nav from '../components/Nav';
-import Landing from './Landing';
 import Auth from './Auth';
 import Search from './Search';
-import VendorProfile from './VendorProfile';
+import Landing from './Landing';
+import Nav from '../components/Nav';
 import VendorPage from './VendorPage';
+import VendorProfile from './VendorProfile';
 
 export default function Home() {
   return (

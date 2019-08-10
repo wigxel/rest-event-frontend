@@ -65,7 +65,7 @@ export const DashboardNav = () => {
   return (
     <StyledNav className="">
       <div>
-        <img src={logo_single} />
+        <img src={logo_single} alt="brand_logo" />
       </div>
       <Container>
         <div className="flex justify-between items-center">

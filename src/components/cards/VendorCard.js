@@ -8,6 +8,10 @@ import { SkeletonWrapper } from '../layouts/skeleton';
 const StyledVendorCard = styled.article`
   width: 250px;
 
+  a {
+    text-decoration: none;
+  }
+
   figure {
     width: 100%;
     margin: 0;
@@ -96,9 +100,9 @@ export const VendorCardSkeleton = () => {
 export const VendorCard = ({ vendor }) => (
   <StyledVendorCard>
     <Link to={vendor.getUrl()}>
-    <figure>
-      <img src={vendor.banner} alt="vendor banner" />
-    </figure>
+      <figure>
+        <img src={vendor.banner} alt="vendor banner" />
+      </figure>
     </Link>
     <figcaption>
       <img className="vendor-logo" src={vendor.logo} alt="Lo" />
