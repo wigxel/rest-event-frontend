@@ -7,11 +7,13 @@ import {
   IconInput,
   RadioInput,
   RadioLabel,
+  CurrencyInput,
   Checkbox,
   Input
 } from '../src/components/forms';
+import { log, trace } from '../src/libs/helpers';
 
-storiesOf('Form', module)
+storiesOf('Form Elements')
   .add('Inputs Fields', () => (
     <Theme>
       <section>
@@ -50,5 +52,17 @@ storiesOf('Form', module)
       <div>
         <Checkbox fullwidth name="rich" value="Antelope" /> Morpheus
       </div>
+    </Theme>
+  ))
+  .add('Number Input', () => (
+    <Theme>
+      <h1>Currency Input</h1>
+      <p>Enter a number</p>
+      <CurrencyInput onChange={e => log(e.target.value)} /> <br />
+      <br />
+      <p>Large</p>
+      <CurrencyInput large />
+      <p>Large & Fullwidth</p>
+      <CurrencyInput fullwidth large isInvalid={trace('Message')} />
     </Theme>
   ));

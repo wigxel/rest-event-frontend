@@ -20,7 +20,7 @@ export const CardStyle = (con = {}) => styled.article`
 export const fullWidth = () => props =>
   props.fullwidth &&
   css`
-    display: block;
+    display: flex;
     width: 100%;
   `;
 
