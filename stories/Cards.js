@@ -22,7 +22,7 @@ const eoaData = createVendor({
     'https://logos-download.com/wp-content/uploads/2018/01/NASA_logo_blue.png'
 });
 
-storiesOf('Cards')
+storiesOf('Cards', module)
   .add('Vendor Card', () => (
     <Theme>
       <section>
