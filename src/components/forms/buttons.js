@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import MaterialIcon from 'material-icons-react';
-import { fullWidth } from '../../styles/helpers';
-import { filterKeys } from '../../libs/helpers';
+import { filterKeys, log } from '../../libs/helpers';
+import { fullWidth, withProp, color } from '../../styles/helpers';
 
 const ButtonStyle = styled.button`
   background-color: ${props => props.theme.accent};
@@ -23,24 +23,19 @@ const ButtonStyle = styled.button`
     margin-right: .5rem;
   }
 
-  ${props =>
-    props.primary &&
-    css`
-      background-color: ${props => props.theme.primary};
-    `}
-  ${props =>
-    props.danger &&
-    css`
-      background-color: ${props => props.theme.danger};
-    `}
+  ${withProp('primary')(css`
+    background-color: ${color('primary')};
+  `)}
 
-  ${props =>
-    props.circle &&
-    css`
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-    `}
+  ${withProp('danger')(css`
+    background-color: ${color('danger')};
+  `)}
+
+  ${withProp('circle')(css`
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  `)}
   ${fullWidth()}
 `;
 
@@ -48,7 +43,7 @@ export const Button = props => {
   return <ButtonStyle {...props}>{props.children}</ButtonStyle>;
 };
 
-const iconProps = props => filterKeys(props, ['color', 'icon'])
+const iconProps = props => filterKeys(props, ['color', 'icon']);
 
 export const IconButton = props => {
   return (
@@ -68,5 +63,9 @@ export const CircleButton = props => {
 };
 
 export const BookButton = () => {
-  return (<IconButton color="white" icon="add">BOOK</IconButton>)
-}
+  return (
+    <IconButton color="white" icon="add">
+      BOOK
+    </IconButton>
+  );
+};
