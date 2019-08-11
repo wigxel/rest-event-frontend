@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { log } from '../../libs/helpers';
+import { color } from '../../styles/helpers';
+import Taby from './Tab';
+import Stacky from './Stack';
+
+export const Tab = Taby;
+export const Stack = Stacky;
 
 const JumbotronStyle = styled.div`
   min-height: calc(100vh - 80px);
@@ -23,8 +28,19 @@ export const Container = props => {
   return <div className="container mx-auto">{props.children}</div>;
 };
 
+const SidebarStyle = styled.div`
+  background-color: ${color('navbar')};
+  min-height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+`;
+
+export const Sidebar = props => {
+  return <SidebarStyle>{props.children}</SidebarStyle>;
+};
+
 export const TwoColumns = props => {
-  const [aside, section] = log(props.children);
+  const [aside, section] = props.children;
 
   return (
     <>
@@ -55,7 +71,7 @@ export const FourColumnGrid = props => {
 export const VendorGroup = props => {
   const Display = props.grid
     ? FourColumnGridStyle
-    : ({ children }) => <div className="stack">{children}</div>;
+    : ({ children }) => <Stack>{children}</Stack>;
   return <Display>{props.children}</Display>;
 };
 
