@@ -5,7 +5,7 @@ import { compose } from 'lodash/fp';
 import Naira from '../../assets/svgs/naira_symbol.svg';
 import { color, fullWidth } from '../../styles/helpers';
 // import { log, trace } from '../../libs/helpers';
-import { naira } from '../../libs/numbers/currency.js';
+import { numberFormat } from '../../libs/numbers/currency.js';
 
 const InputStyle = styled.div`
   height: 40px;
@@ -75,17 +75,17 @@ export const clean = value => _.replace(String(value), /,/gm, '');
 
 const NumberInput = props => {
   const [prop, setProp] = useState({
-    value: '',
-    valueFormatted: '',
-    focus: false
+    value: ''
   });
-  const allProps = { ...props, ...prop };
+  const [focus, setFocus] = useState(false);
+
+  const allProps = { ...props, focus };
   const formatValue = compose(
     // trace('returning to zero(0)'),
     handleNaN(() => props.isInvalid(INVALID_MESSAGE)),
     // trace('naira'),
-    naira(),
-    // trace('cleaned'),
+    numberFormat,
+    // trace('cleaned')
     clean
   );
 
@@ -95,17 +95,25 @@ const NumberInput = props => {
       <input
         type="text"
         placeholder="0.0"
-        value={prop.valueFormatted}
+        value={prop.value}
         onKeyDown={evt => {
           evt.keyCode === 13 ? evt.target.blur() : validateInput(evt);
         }}
-        onChange={({ target }) => clean(target.value)}
-        onFocus={() => setProp({ focus: true })}
-        onBlur={({ target }) => {
-          setProp({ focus: false });
+        onChange={({ target }) =>
           setProp({
-            value: clean(target.value),
-            valueFormatted: formatValue(target.value)
+            value: clean(target.value)
+          })
+        }
+        onFocus={({ target }) => {
+          setFocus(true);
+          setProp({
+            value: clean(target.value)
+          });
+        }}
+        onBlur={({ target }) => {
+          setFocus(false);
+          setProp({
+            value: formatValue(target.value)
           });
         }}
       />
