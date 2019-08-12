@@ -1,6 +1,12 @@
 %heading {
     font-family: 'Quicksand', 'Montserrat', sans-serif;
+    &.font-light {
+        font-weight: 300;
+    }
     
+    &.font-bold {
+        font-weight: 500;
+    }
     // & + .paragraph {
         // margin-top: 0;
     // }
@@ -9,7 +15,6 @@
 .h1 {
     @extend %heading;
     font-size: 45px;
-    font-weight: bold;
 }
 
 .h2 {

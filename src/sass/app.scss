@@ -30,4 +30,41 @@ a {
   }
 }
 
+.back-arrow {
+  width: 60px;
+  padding-left: 25px;
+  align-items: center;
+  display: inline-flex;
+  transition: all .2s ease-out;
+
+  &::after, &::before {
+    content: "";
+    display: inline-block;
+    transition: all .2s ease-out;
+  }
+  
+  &::after {
+    flex: 1;
+    height: 1px;
+    background-color: currentColor;
+    transform: translate(-12px);
+  }
+
+  &::before {
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    border: solid 1px currentColor;
+    border-color: transparent transparent currentColor currentColor;
+    transform: rotate(45deg);
+  }
+
+  a:hover & {
+    padding-left: 0px;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
 @import './tailwind.min.css'

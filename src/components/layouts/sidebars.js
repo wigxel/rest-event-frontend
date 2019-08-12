@@ -5,8 +5,6 @@ import { color } from '../../styles/helpers';
 
 const FlatListStyle = styled.div`
   width: 100%;
-  background-color: ${color('navbar')};
-  min-height: calc(100vh - 60px);
   box-sizing: border-box;
 
   li {

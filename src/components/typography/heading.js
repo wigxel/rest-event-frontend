@@ -23,7 +23,7 @@ export const H2 = props => {
 
 export const H3 = props => {
   return (
-    <h3 {...props} className={styles.h3}>
+    <h3 {...props} className={addString(props, styles.h3)}>
       {props.children}
     </h3>
   );
@@ -31,7 +31,7 @@ export const H3 = props => {
 
 export const H4 = props => {
   return (
-    <h4 {...props} className={styles.h4}>
+    <h4 {...props} className={addString(props, styles.h4)}>
       {props.children}
     </h4>
   );

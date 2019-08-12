@@ -2,7 +2,7 @@ import React from 'react';
 import MaterialIcon from 'material-icons-react';
 import styled, { css } from 'styled-components';
 import { trace } from '../../libs/helpers';
-import { fullWidth } from '../../styles/helpers';
+import { fullWidth, color } from '../../styles/helpers';
 
 const InputStyle = styled.input`
   background-color: ${props => props.theme.whitesmoke};
@@ -14,6 +14,7 @@ const InputStyle = styled.input`
   font-size: 13px;
   font-family: var(--heading-font, 'Quicksand');
   transition: all 0.3s ease-out;
+  border-color: ${color('primary')};
   margin-bottom: var(--input-mb, 1rem);
   caret-color: ${a => a.theme.primary};
 
@@ -26,12 +27,23 @@ const InputStyle = styled.input`
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(112, 93, 245, 0.16);
   }
+
+  &:focus {
+    border: solid 1px ${color('primary')};
+    ${props =>
+      props.large &&
+      css`
+        border: solid 2px ${color('primary')};
+      `}
+  }
+
   ${fullWidth()}
   ${props =>
     props.large &&
     css`
       height: 50px;
       font-size: 16px;
+      border: solid 2px transparent;
     `}
 `;
 

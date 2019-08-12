@@ -9,6 +9,10 @@
         --gap: .5rem;
     }
 
+    &.stack-lg {
+        --gap: 1.5rem;
+    }
+    
     >*+* {
         margin-top: var(--gap);
     }

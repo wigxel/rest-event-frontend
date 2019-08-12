@@ -9,6 +9,9 @@ const StyledNav = styled.nav`
   width: 100%;
   display: flex;
   min-height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 500;
   align-items: center;
   background-color: ${color('navbar')};
 

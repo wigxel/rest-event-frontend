@@ -6,7 +6,7 @@ import { H3, P } from '../typography';
 import { color, CardStyle } from '../../styles/helpers';
 import { SkeletonWrapper } from '../layouts/skeleton';
 
-const CardStyled = styled(CardStyle({ shadow: true }))`
+const CardStyled = styled(CardStyle({ shadow: true, clickable: true }))`
   width: 100%;
   display: flex;
   max-width: 300px;
