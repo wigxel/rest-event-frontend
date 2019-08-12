@@ -15,7 +15,7 @@ const TabStyle = styled.div`
 `;
 
 const Tab = props => {
-  return <TabStyle {...props} className="tab" />;
+  return <TabStyle {...props} />;
 };
 
 export default Tab;

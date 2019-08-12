@@ -19,7 +19,7 @@ const StackStyle = styled.div`
 `;
 
 const Stack = props => {
-  return <StackStyle {...props} className="tab" />;
+  return <StackStyle {...props} />;
 };
 
 export default Stack;
