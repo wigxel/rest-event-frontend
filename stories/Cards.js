@@ -5,13 +5,17 @@ import {
   VendorList,
   VendorListSkeleton,
   VendorCardSkeleton,
-  ProjectCard
+  ProjectCard,
+  ServiceCard
 } from '../src/components/cards';
-import { VendorGroup } from '../src/components/layouts';
+import { VendorGroup, GridView } from '../src/components/layouts';
 import { H3 } from '../src/components/typography/heading';
 import { generateVendors, createVendor } from '../src/libs/mocks/vendors';
 import { generateProjects } from '../src/libs/mocks/projects';
+import { vendorCategory } from '../src/libs/mocks/categories';
 import { Theme } from './styles/StyleComponents';
+import cameraIcon from '../src/assets/svgs/camera-icon.svg';
+import Stack from '../src/components/layouts/Stack';
 
 const eoaData = createVendor({
   name: 'Joas Confectionaires',
@@ -78,3 +82,43 @@ storiesOf('Cards', module)
       </VendorGroup>
     </Theme>
   ));
+
+const vendorAvatars = generateVendors(6).map(e => e.logo);
+storiesOf('Cards', module).add('Service Card', () => (
+  <Theme>
+    <Stack>
+      <section>
+        <H3>Regular</H3>
+        <GridView width={160}>
+          {vendorCategory.map((cat, index) => (
+            <ServiceCard
+              key={index}
+              image={cat.icon}
+              vendors={vendorAvatars}
+              checked={true}
+              {...cat}
+            />
+          ))}
+          <ServiceCard.Skeleton />
+        </GridView>
+      </section>
+      <section>
+        <H3>Large</H3>
+        <GridView width={220}>
+          {vendorCategory.map((cat, index) => (
+            <ServiceCard
+              key={index}
+              checked={true}
+              name={cat.name}
+              image={cat.icon}
+              vendors={vendorAvatars}
+              isActive={index % 2 == 0}
+              large
+            />
+          ))}
+          <ServiceCard.Skeleton large isActive={false} />
+        </GridView>
+      </section>
+    </Stack>
+  </Theme>
+));

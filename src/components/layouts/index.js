@@ -75,6 +75,16 @@ export const VendorGroup = props => {
   return <Display>{props.children}</Display>;
 };
 
+const Grid = styled(FourColumnGridStyle)`
+  justify-content: flex-start;
+  grid-template-columns: repeat(auto-fill, ${a => a.width}px);
+`;
+
+export const GridView = props => <Grid {...props} />;
+GridView.defaultProps = {
+  width: 200
+};
+
 export * from './imageHolders';
 export * from './navigations';
 export * from './sidebars';
