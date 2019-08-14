@@ -3,13 +3,9 @@ import { HashRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { Theme } from './styles/StyleComponents';
-import {
-  VendorAccord,
-  Collapsible
-} from '../src/components/layouts/Accordions';
-import { FlatList } from '../src/components/layouts';
+import { FlatList, VendorAccord, Collapsible } from '../src/components/lists';
 import { H4, P } from '../src/components/typography';
-import Stack from '../src/components/layouts/Stack';
+import { Stack } from '../src/components/layouts/';
 
 const stories = storiesOf('List', module).addDecorator(withKnobs);
 

@@ -2,14 +2,13 @@ import React from 'react';
 import { HashRouter, Route, Link } from 'react-router-dom';
 
 import {
-  FlatList,
   Container,
   TwoColumns,
   Sidebar,
   Tab,
   Stack
 } from '../../../components/layouts';
-
+import { FlatList } from '../../../components/lists';
 import { ProjectCard } from '../../../components/cards';
 import {
   IconButton,

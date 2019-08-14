@@ -53,3 +53,5 @@ const FlatListLink = props => {
   );
 };
 FlatList.Link = FlatListLink;
+
+export default FlatList;

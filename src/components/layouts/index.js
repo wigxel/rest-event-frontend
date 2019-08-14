@@ -87,4 +87,3 @@ GridView.defaultProps = {
 
 export * from './imageHolders';
 export * from './navigations';
-export * from './sidebars';
