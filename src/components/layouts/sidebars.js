@@ -3,16 +3,24 @@ import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 import { color } from '../../styles/helpers';
 
-const FlatListStyle = styled.div`
+const FlatListStyle = styled.ul`
   width: 100%;
+  padding: 0;
   box-sizing: border-box;
 
+  .list-item {
+    padding: 0.5rem 1rem;
+    & + .list-item {
+      border-top: solid 1px ${color('whitesmoke')};
+    }
+  }
+
   li {
-    width: auto;
     display: block;
 
     a {
       display: block;
+      text-decoration: none;
       border: 0 solid 5px;
       padding: 1rem 1.5rem;
       color: ${color('grey')};
@@ -32,14 +40,14 @@ export const FlatList = props => {
 };
 
 const FlatListItem = props => {
-  return <li>{props.children}</li>;
+  return <li className="list-item" {...props} />;
 };
 
 FlatList.Item = FlatListItem;
 
 const FlatListLink = props => {
   return (
-    <FlatList.Item>
+    <FlatList.Item className="nav-item">
       <Link {...props}>{props.children}</Link>
     </FlatList.Item>
   );
