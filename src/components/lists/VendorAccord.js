@@ -78,21 +78,21 @@ export const VendorAccord = props => {
   const allProps = { ...props, isOpen: state.open };
 
   return (
-    <VendorAccordStyle {...allProps}>
+    <VendorAccordStyle {...allProps} onClick={() => setState({ open: !state.open })}>
       <Tab>
         <img className="thumbnail" src={thumbnail} alt="" />
         <h5 className="v-name">Micheal Mobs</h5>
-      </Tab>
+      </Tab> 
       <Tab>
         <span> 5 </span>
         <MaterialIcon icon="star" size={16} />
-        <button onClick={() => setState({ open: !state.open })}>
+        <button>
           <img src={chevronDown} width={10} alt="" />
         </button>
       </Tab>
       <Collapsible className="v-info" open={state.open}>
         <FlatList.Item>User Available for you.</FlatList.Item>
-        <FlatList.Item>Working on it.</FlatList.Item>
+        <FlatList.Item>See Profile</FlatList.Item>
       </Collapsible>
     </VendorAccordStyle>
   );

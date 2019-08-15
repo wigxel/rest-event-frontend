@@ -9,7 +9,9 @@ import { SkeletonWrapper as Skeleton } from '../layouts/skeleton';
 const ServiceStyle = styled(CardStyle({ shadow: true, clickable: true }))`
   width: 163px;
   position: relative;
-
+  border: solid 2px transparent;
+  transition: border .3s ease-in;
+  
     &:before {
         content: '';
         top: 5px;
@@ -90,7 +92,8 @@ export const ServiceCard = props => {
         <div className="avatars">
           {props.vendors.map((thumbnail, index) => (
             <img
-              class="thumbnail"
+              key={index}
+              className="thumbnail"
               alt="vendor thumbnail"
               src={thumbnail}
               style={{ zIndex: props.vendors.length - index }}
@@ -117,7 +120,7 @@ ServiceCard.propTypes = {
   isActive: t.bool
 };
 
-ServiceCard.Skeleton = props => {
+const ServiceCardSkeleton = props => {
   return (
     <ServiceStyle
       {...props}
@@ -140,3 +143,5 @@ ServiceCard.Skeleton = props => {
     </ServiceStyle>
   );
 };
+
+ServiceCard.Skeleton = ServiceCardSkeleton

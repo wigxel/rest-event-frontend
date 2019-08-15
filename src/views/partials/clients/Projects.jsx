@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Link } from 'react-router-dom';
+import { Redirect, Route, Link } from 'react-router-dom';
 
 import {
   Container,
@@ -19,28 +19,34 @@ import {
 } from '../../../components/forms';
 import { H3, H4, H1, P } from '../../../components/typography';
 import categories from '../../../libs/mocks/categories';
-// import { log } from '../../../libs/helpers';
+import { log } from '../../../libs/helpers';
 import { CardStyle } from '../../../styles/helpers';
+import routes from './routes';
 
 export default function Projects(props) {
   props.location.hash === '#/' && props.history.replace('#/events');
 
   return (
-    <HashRouter>
+    <>
       <TwoColumns>
         <Sidebar>
           <FlatList>
-            <FlatList.Link to="/events">Events</FlatList.Link>
-            <FlatList.Link to="/chatbots">Chatbots</FlatList.Link>
-            <FlatList.Link to="/messaging">Messaging</FlatList.Link>
+            <FlatList.Link to={routes.events}>Events</FlatList.Link>
+            <FlatList.Link to={routes.chatbots}>Chatbots</FlatList.Link>
+            <FlatList.Link to={routes.messaging}>Messaging</FlatList.Link>
           </FlatList>
         </Sidebar>
         <Container>
-          <Route exact path="/events" component={EventsGrid} />
-          <Route exact path="/events/create" component={CreateEvent} />
+          <Route exact path={routes.events} component={EventsGrid} />
+          <Route exact path={routes.createEvent} component={CreateEvent} />
+          <Route
+            exact
+            path={'/dashboard/projects'}
+            component={() => <Redirect to={routes.events} />}
+          />
         </Container>
       </TwoColumns>
-    </HashRouter>
+    </>
   );
 }
 
@@ -52,7 +58,7 @@ const CreateEvent = props => {
     <Stack className="md:w-2/4" large>
       <hgroup>
         <P>
-          <Link to="/events" style={{ color: '#878787' }}>
+          <Link to={routes.events} style={{ color: '#878787' }}>
             <span className="back-arrow" />
             abort
           </Link>
@@ -129,14 +135,18 @@ const CreateEvent = props => {
 const EventsGrid = props => {
   return (
     <>
-      <Link to="/events/create">
+      <Link to={routes.createEvent}>
         <IconButton icon="add" color="#fff" primary large>
           New Project
         </IconButton>
       </Link>
       <div className="py-5 flex" style={{ gap: '1rem' }}>
-        <ProjectCard title="Micheal's Birthday" category="kids party" />
-        <ProjectCard title="Rita's baby shower" category="baby shower" />
+        <Link to={routes.planner(20)}>
+          <ProjectCard title="Micheal's Birthday" category="kids party" />
+        </Link>
+        <Link to={routes.planner(12)}>
+          <ProjectCard title="Rita's baby shower" category="baby shower" />
+        </Link>
       </div>
     </>
   );
