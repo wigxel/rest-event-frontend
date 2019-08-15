@@ -11,14 +11,14 @@ const ButtonStyle = styled.button`
   white-space: nowrap;
   font-size: 13px;
   align-items: center;
+  justify-content: center;
   border: none;
   cursor: pointer;
   border-radius: 12px;
   border: solid 2px transparent;
   box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
   color: white;
+  display: inline-flex;
   transform: scale(1);
   transition: all .3s cubic-bezier(.08,.82,.17,1);
   font-family: var(--heading-font, 'Quicksand');
