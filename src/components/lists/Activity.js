@@ -16,7 +16,7 @@ const ActivityStyle = styled.ul `
   .a-item {
     display: block;
     position: relative;
-    padding: .5rem 1.5rem;
+    padding: .5rem 0 .5rem 1.5rem;
 
     .msg {
 
