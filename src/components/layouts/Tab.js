@@ -2,16 +2,22 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { withProp } from '../../styles/helpers';
 
-const TabStyle = styled.div`
-  --tab-gap: 0.5rem;
+const propSizes = [
+  ['small', '.25rem'],
+  ['medium', '1.2rem'],
+  ['large', '1.5rem']
+]
 
+const TabStyle = styled.div`
   > * + * {
-    margin-left: var(--tab-gap, 0.5rem);
+    margin-left:  0.5rem;
   }
 
-  ${withProp('large')(css`
-    --tab-gap: 1.5rem;
-  `)}
+  ${propSizes.map(([prop, size]) => withProp(prop)(css`
+    > * + * {
+      margin-left: ${size};
+    }
+  `))}
 `;
 
 const Tab = props => {

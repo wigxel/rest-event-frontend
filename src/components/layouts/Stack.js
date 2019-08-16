@@ -2,20 +2,22 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { withProp } from '../../styles/helpers';
 
-const StackStyle = styled.div`
-  --gap: 1rem;
+const propSizes = [
+  ['small', '.5rem'],
+  ['medium', '1.5rem'],
+  ['large', '2rem']
+]
 
+const StackStyle = styled.div`
   > * + * {
-    margin-top: var(--gap, 0.5rem);
+    margin-top: 1rem;
   }
 
-  ${withProp('small')(css`
-    --gap: 0.5rem;
-  `)}
-
-  ${withProp('large')(css`
-    --gap: 1.5rem;
-  `)}
+  ${propSizes.map(([prop, size]) => withProp(prop)(css`
+    > * + * {
+      margin-top:  ${size};
+    }
+  `))}
 `;
 
 const Stack = props => {
