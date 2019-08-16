@@ -73,7 +73,7 @@ export const DashboardNav = () => {
       <Container>
         <div className="flex justify-between items-center">
           <ul className="nav-links">
-            <Link to="/dashboard/home">Dashboard</Link>
+            <Link to="/dashboard/overview">Dashboard</Link>
             <Link to="/dashboard/projects">Projects</Link>
             <Link to="/dashboard/account">Account</Link>
           </ul>

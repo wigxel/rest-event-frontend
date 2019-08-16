@@ -13,7 +13,7 @@ import {
 } from '../../../components/layouts';
 import routes from './routes';
 import { color } from '../../../styles/helpers';
-import { Button, IconButton } from '../../../components/forms';
+import { Button } from '../../../components/forms';
 import { Card, ServiceCard } from '../../../components/cards';
 import { vendorCategory } from '../../../libs/mocks/categories';
 import { FlatList, VendorAccord } from '../../../components/lists';
@@ -85,7 +85,7 @@ const Planner = () => {
                 key={index}
                 {...e}
                 large
-                isActive={e == category}
+                isActive={e === category}
                 image={e.icon}
                 onClick={fireAction(PICK, e)}
               />

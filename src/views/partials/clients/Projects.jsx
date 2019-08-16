@@ -19,7 +19,7 @@ import {
 } from '../../../components/forms';
 import { H3, H4, H1, P } from '../../../components/typography';
 import categories from '../../../libs/mocks/categories';
-import { log } from '../../../libs/helpers';
+// import { log } from '../../../libs/helpers';
 import { CardStyle } from '../../../styles/helpers';
 import routes from './routes';
 
