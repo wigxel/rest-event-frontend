@@ -1,8 +1,7 @@
 import React from 'react';
+import { Container, Tab } from '.';
 import styled from 'styled-components';
-import { NavLink as Link } from 'react-router-dom';
 import { color } from '../../styles/helpers';
-import { Container } from '.';
 import logo_single from '../../assets/svgs/logo.svg';
 
 const StyledNav = styled.nav`
@@ -25,30 +24,32 @@ const StyledNav = styled.nav`
     }
   }
 
-  ul.nav-links {
+  .nav-links {
     a {
       position: relative;
       font-family: var(--heading-font);
       display: inline-block;
       line-height: 60px;
       font-weight: bold;
+      margin-right: 1rem;
+      margin-left: 1rem;
       height: 60px;
       overflow: hidden;
-      color: ${color('greylight')};
       font-weight: 500;
-      text-transform: uppercase;
       padding: 0 1rem;
       font-size: 16px;
+      text-transform: uppercase;
+      color: ${color('greylight')};
 
       &::before {
+        left: 0;
+        top: -8px;
         content: '';
         width: 100%;
         height: 8px;
-        border-radius: 4px;
         display: block;
         position: absolute;
-        top: -8px;
-        left: 0;
+        border-radius: 4px;
         background-color: ${color('primary')};
         transition: top 0.3s;
       }
@@ -64,7 +65,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-export const DashboardNav = () => {
+export const DashboardNav = (props) => {
   return (
     <StyledNav className="">
       <div>
@@ -72,11 +73,9 @@ export const DashboardNav = () => {
       </div>
       <Container>
         <div className="flex justify-between items-center">
-          <ul className="nav-links">
-            <Link to="/dashboard/overview">Dashboard</Link>
-            <Link to="/dashboard/projects">Projects</Link>
-            <Link to="/dashboard/account">Account</Link>
-          </ul>
+          <Tab className="nav-links">
+            {props.children}
+          </Tab>
           <div>.avatar</div>
         </div>
       </Container>

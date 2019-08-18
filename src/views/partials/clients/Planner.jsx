@@ -16,7 +16,7 @@ import { color } from '../../../styles/helpers';
 import { Button } from '../../../components/forms';
 import { Card, ServiceCard } from '../../../components/cards';
 import { vendorCategory } from '../../../libs/mocks/categories';
-import { FlatList, VendorAccord } from '../../../components/lists';
+import { VendorAccord } from '../../../components/lists';
 
 const Label = styled(H4)`
   color: ${color('greylight')};
@@ -102,15 +102,17 @@ const Planner = () => {
                 <P className="italic">Cost for all vendors.</P>
             </Card.Header>
             <table className="w-full">
-              <tr className="bg-gray">
-                <th className="text-left">Service</th>
-                <th width="30%" className="text-right">Price(&#x20A6;)</th>
-              </tr>
-              {prices.map((e, index)=> <tr key={index}>
-                <td className="text-left py-3 border-b border-gray">{e.name}</td>
-                <td className="text-right py-3 border-b border-gray">{e.price}</td>
+              <tbody>
+                <tr className="bg-gray">
+                  <th className="text-left">Service</th>
+                  <th width="30%" className="text-right">Price(&#x20A6;)</th>
                 </tr>
-              )}
+                {prices.map((e, index)=> <tr key={index}>
+                  <td className="text-left py-3 border-b border-gray">{e.name}</td>
+                  <td className="text-right py-3 border-b border-gray">{e.price}</td>
+                  </tr>
+                )}
+              </tbody>
             </table>
             <footer className="pt-5">
               <Tab>
@@ -149,13 +151,13 @@ const VendorFinder = (props) => {
             </P>
           </hgroup>
         </header>
-        <FlatList>
+        <section>
           {Array(15)
             .fill(3)
             .map((e, index) => (
               <VendorAccord key={index}/>
             ))}
-        </FlatList>
+        </section>
       </Stack>
     </section>
   );

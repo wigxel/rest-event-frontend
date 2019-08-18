@@ -20,7 +20,7 @@ const TabStyle = styled.div`
   `))}
 `;
 
-const Tab = props => {
+export const Tab = props => {
   return <TabStyle {...props} />;
 };
 

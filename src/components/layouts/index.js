@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { color } from '../../styles/helpers';
-import Taby from './Tab';
-import Stacky from './Stack';
+import Stack from './Stack';
 
-export const Tab = Taby;
-export const Stack = Stacky;
+export * from './Tab';
+export * from './Stack';
 
 const JumbotronStyle = styled.div`
   min-height: calc(100vh - 80px);

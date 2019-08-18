@@ -5,7 +5,7 @@ import { CardStyle, color } from '../../styles/helpers';
 
 const StyledCard = styled(CardStyle({ shadow: true }))`
 	header {
-		padding: 0.5rem;
+		padding: 0 0.5rem 0.5rem;
 		margin: -0.5rem -0.5rem .5rem;
 		border-bottom: solid 1px ${color('whitesmoke')}
 	}

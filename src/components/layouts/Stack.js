@@ -20,7 +20,7 @@ const StackStyle = styled.div`
   `))}
 `;
 
-const Stack = props => {
+export const Stack = props => {
   return <StackStyle {...props} />;
 };
 

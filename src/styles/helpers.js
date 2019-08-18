@@ -23,6 +23,11 @@ export const CardStyle = (con = {}) => styled.article`
       box-shadow: 0 3px 12px -5px rgba(0, 0, 0, 0.3);
     }
   `)(con)}
+
+  ${withProp('outlineDanger')(css`
+    border: solid 1px ${color('danger')};
+    box-shadow: none !important;
+  `)}
 `;
 
 export const fullWidth = () =>

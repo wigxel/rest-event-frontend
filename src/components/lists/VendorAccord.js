@@ -9,7 +9,7 @@ import { Tab } from '../layouts';
 import FlatList from './FlatList';
 import Collapsible from './Collapsible';
 
-const VendorAccordStyle = styled.li`
+const VendorAccordStyle = styled.div`
   width: 100%;
   padding: 1rem 0.5rem 0.5rem;
   box-sizing: border-box;
