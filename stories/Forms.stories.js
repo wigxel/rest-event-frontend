@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { H3, H4 } from '../src/components/typography/heading';
 import { Theme } from './styles/StyleComponents';
 import {
-  SearchComponent,
   IconInput,
   RadioInput,
   RadioLabel,

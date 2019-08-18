@@ -13,7 +13,3 @@ storiesOf('Welcome', module).add('to Storybook', () => (
     <P>It all begins from the first component.</P>
   </div>
 ));
-//TODO: change to stories
-import './Forms';
-import './Cards';
-import './Buttons';
