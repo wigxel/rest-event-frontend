@@ -27,6 +27,10 @@ const ButtonStyle = styled.button`
     margin-right: .5rem;
   }
 
+  &:disabled {
+    opacity: .50;  
+  }
+
   &:focus, &:hover:focus {
     transform: scale(.95);
   }

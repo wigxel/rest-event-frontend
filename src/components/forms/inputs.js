@@ -15,7 +15,6 @@ const InputStyle = styled.input`
   font-family: var(--heading-font, 'Quicksand');
   transition: all 0.3s ease-out;
   border-color: ${color('primary')};
-  margin-bottom: var(--input-mb, 1rem);
   caret-color: ${a => a.theme.primary};
 
   &::placeholder {
