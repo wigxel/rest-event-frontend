@@ -7,6 +7,7 @@ import { log } from '../libs/helpers';
 import { H2, H3, P } from '../components/typography';
 import LoginCard from '../components/cards/LoginCard';
 import { Input, Button, Checkbox } from '../components/forms';
+import { Stack } from '../components/layouts';
 
 const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -30,10 +31,9 @@ const Auth = () => {
       <div className="flex justify-center h-screen items-center">
         <LoginCard className="flex-1">
           {activeTab === 3 ? (
-            <>
+            <Stack>
               <H3>Forgot Password?</H3>
               <P small>We'll send you a help email. </P>
-              <br />
               <Input type="email" placeholder="Enter Email" fullwidth />
               <Button primary className="mr-2">
                 SEND
@@ -41,9 +41,9 @@ const Auth = () => {
               <Button ghost onClick={() => setTab(false)}>
                 No Thanks
               </Button>
-            </>
+            </Stack>
           ) : activeTab ? (
-            <>
+            <Stack>
               <H2>Join In</H2>
               <P small className="mb-5">
                 Already have an account?{' '}
@@ -62,7 +62,7 @@ const Auth = () => {
               <Button primary fullwidth>
                 Register
               </Button>
-            </>
+            </Stack>
           ) : (
             <form onSubmit={handleSubmit(onLogin)}>
               <H2 className="mb-0">Sign In</H2>
@@ -77,30 +77,32 @@ const Auth = () => {
                   Provide a valid username and password
                 </P>
               )}
-              <Input
-                type="text"
-                name="email"
-                placeholder="E-mail Address"
-                ref={register({ required: true, pattern: emailRegex })}
-                fullwidth
-              />
-              <Input
-                type="password"
-                name="password"
-                placeholder="Password"
-                ref={register({ required: true })}
-                fullwidth
-              />
-              <P small className="mb-5 -mt-2">
-                <a href="#forgot-password" onClick={() => setTab(3)}>
-                  Forgot Password?
-                </a>
-              </P>
-              <Link to="/dashboard">
-                <Button primary fullwidth>
-                  LOGIN
-                </Button>
-              </Link>
+              <Stack>
+                <Input
+                  type="text"
+                  name="email"
+                  placeholder="E-mail Address"
+                  ref={register({ required: true, pattern: emailRegex })}
+                  fullwidth
+                />
+                <Input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  ref={register({ required: true })}
+                  fullwidth
+                />
+                <P small className="mb-5 -mt-2">
+                  <a href="#forgot-password" onClick={() => setTab(3)}>
+                    Forgot Password?
+                  </a>
+                </P>
+                <Link to="/dashboard">
+                  <Button primary fullwidth>
+                    LOGIN
+                  </Button>
+                </Link>
+              </Stack>
             </form>
           )}
         </LoginCard>

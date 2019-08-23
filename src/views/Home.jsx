@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import Auth from './Auth';
 import Search from './Search';
-import Landing from './Landing';
+// import Landing from './Landing';
 import ComingSoon from './ComingSoon';
 import Nav from '../components/Nav';
 import VendorPage from './VendorPage';
