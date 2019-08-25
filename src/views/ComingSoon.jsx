@@ -1,37 +1,41 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import useForm from 'react-hook-form';
+import { addSubscriber } from '../libs/firebase';
 
 import { H4, P } from '../components/typography'
 import { Button, Input } from '../components/forms';
 import {
-    Container, Stack
+    Container, Stack 
 } from '../components/layouts'
-import { log } from '../libs/helpers'
+// import { log } from '../libs/helpers'
 import landingImage from '../assets/svgs/landing-image.svg';
 const FORM_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSfo6WdM8Pi4yDq1Fjhd3PXaIm0Qc7Qrmx9vj09VddoXmCYDqA/viewform'
 
 
-const Heading = () => (
+const Heading = (props) => (
     <h1 className="text-5xl mb-5" style={{lineHeight: '1', fontFamily: '"Dancing Script", cursive'}}>
-       We make event planning a <i>breeze</i>
+       {props.children}
     </h1>
 )
 
 const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
+
 const ComingSoon = () => {
-    const {register, errors, handleSubmit } = useForm({
+    const [subscribed, setSub] = useState({state: false, email: ''});
+    const {register, setError, clearError, errors, handleSubmit } = useForm({
         defaultValues: {
             email: ''
         }
     })
 
-    useEffect(() => {
-        log(errors);
-    })
-
-    const onSubscribe = () => {
-        log(errors);
+    const onSubscribe = ({ email }) => {
+        if(Object.keys(errors).length > 0) return;
+        addSubscriber(email).then(() => {
+            setSub({ state: true, email })
+        }).catch(() => {
+           setError('email', 'failed', 'We are unable to add your email, please try again later');
+        })
     }
     
     return (
@@ -45,9 +49,10 @@ const ComingSoon = () => {
                 </section>
                 <section className="flex-1">
                     <Stack large>
+                        {subscribed.state || <>
                         <article>
                             <span className="text-xs mb-3 border border-gray px-2 py-1 rounded-lg inline-block">coming soon</span>
-                            <Heading />
+                            <Heading>We make event planning a breeze</Heading>
                             <H4>
                                 With our easy-to-use collaborative event management software for everyone, event managment has never been easey. Get credible vendors and planners from one platform.
                                 <br/>
@@ -56,17 +61,26 @@ const ComingSoon = () => {
                         <H4 className="md:w-3/4">
                              Take this <a href={FORM_LINK} className="text-underline">Short Survey</a> if you are an event professional, we need your input before dropping the first features. 
                         </H4>
-                        <form action="POST" onSubmit={handleSubmit(onSubscribe)}>
+                         <form action="POST" onSubmit={handleSubmit(onSubscribe)}>
                             <Stack>
                                 <Input
                                     name="email"
                                     className="w-full md:w-2/3"
+                                    onChange={() => clearError('email')}
                                     ref={register({ required: true, pattern: emailRegex })}
                                     placeholder="yusuf.kelvin@somwhere.com" type="text" large/>
                                 <Button disabled={errors.email} primary className="w-full md:w-auto lg:ml-4">Notify on Launch</Button>
                             </Stack>
-                            {errors.email && <P small className="text-red-500">Please provide a valid E-mail address.</P>}
+                            <P small className="text-red-500">{errors.email && errors.email.type === 'failed' && errors.email.message }</P>
                         </form>
+                        </>
+                        }
+                        {!subscribed.state ||<article>
+                            <Heading>{'Thanks for subscribing'}</Heading>
+                            <H4>
+                                We will keep you updated via email address: <b>{subscribed.email}</b>
+                            </H4>
+                        </article>}
                     </Stack>
                 </section>
             </div>
