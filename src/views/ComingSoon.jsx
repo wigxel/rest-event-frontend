@@ -54,7 +54,7 @@ const ComingSoon = () => {
                             <span className="text-xs mb-3 border border-gray px-2 py-1 rounded-lg inline-block">coming soon</span>
                             <Heading>We make event planning a breeze</Heading>
                             <H4>
-                                With our easy-to-use collaborative event management software for everyone, event managment has never been easey. Get credible vendors and planners from one platform.
+                                With our easy-to-use collaborative event management software for everyone, event managment has never been easier. Get credible vendors, planners and more from one platform.
                                 <br/>
                             </H4>
                         </article>

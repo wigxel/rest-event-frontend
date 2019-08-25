@@ -13,7 +13,7 @@ const Nav = () => {
   return (
     <StyledNav className="main-nav">
       <img src={logo} alt="logo" />
-      <ul className="tab nav-links">
+      {/* <ul className="tab nav-links">
         <li>
           <NavLink exact to="/">
             HOME
@@ -25,7 +25,7 @@ const Nav = () => {
         <li>
           <NavLink to="/signup">SIGNUP</NavLink>
         </li>
-      </ul>
+      </ul> */}
     </StyledNav>
   );
 };
