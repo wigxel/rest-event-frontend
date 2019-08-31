@@ -83,6 +83,7 @@ const Auth = () => {
                   name="email"
                   placeholder="E-mail Address"
                   ref={register({ required: true, pattern: emailRegex })}
+                  large
                   fullwidth
                 />
                 <Input
@@ -90,6 +91,7 @@ const Auth = () => {
                   name="password"
                   placeholder="Password"
                   ref={register({ required: true })}
+                  large
                   fullwidth
                 />
                 <P small className="mb-5 -mt-2">

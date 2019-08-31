@@ -2,20 +2,21 @@ import React from 'react';
 import MaterialIcon from 'material-icons-react';
 import styled, { css } from 'styled-components';
 import { trace } from '../../libs/helpers';
-import { fullWidth, color } from '../../styles/helpers';
+import { fullWidth, withProp, color } from '../../styles/helpers';
 
 const InputStyle = styled.input`
   background-color: ${props => props.theme.whitesmoke};
   border: none;
   height: 38px;
   min-width: 243px;
-  border-radius: 12px;
+  border-radius: 6px;
   text-indent: 15px;
   font-size: 13px;
   font-family: var(--heading-font, 'Quicksand');
   transition: all 0.3s ease-out;
   border-color: ${color('primary')};
   caret-color: ${a => a.theme.primary};
+  outline: none;
 
   &::placeholder {
     color: #a0a0a0;
@@ -29,21 +30,18 @@ const InputStyle = styled.input`
 
   &:focus {
     border: solid 1px ${color('primary')};
-    ${props =>
-      props.large &&
-      css`
+    ${withProp('large')(css`
         border: solid 2px ${color('primary')};
-      `}
+    `)}
   }
 
   ${fullWidth()}
-  ${props =>
-    props.large &&
-    css`
+  ${withProp('large')(css`
       height: 50px;
       font-size: 16px;
+      border-radius: 12px;
       border: solid 2px transparent;
-    `}
+    `)}
 `;
 
 export const Input = React.forwardRef((props, ref) => {

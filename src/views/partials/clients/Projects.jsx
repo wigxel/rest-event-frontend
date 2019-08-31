@@ -5,6 +5,7 @@ import {
   Container,
   TwoColumns,
   Sidebar,
+  GridView,
   Tab,
   Stack
 } from '../../../components/layouts';
@@ -37,8 +38,8 @@ export default function Projects(props) {
           </FlatList>
         </Sidebar>
         <Container>
-          <Route exact path={routes.events} component={EventsGrid} />
           <Route exact path={routes.createEvent} component={CreateEvent} />
+          <Route exact path={routes.events} component={EventsGrid} />
           <Route
             exact
             path={'/dashboard/projects'}
@@ -67,11 +68,11 @@ const CreateEvent = props => {
         <H4>We need the following informations</H4>
       </hgroup>
 
-      <section>
+      <Stack>
         <Input large type="text" placeholder="Title" fullwidth />
         <Input large type="text" placeholder="Date" fullwidth />
         <Input large type="text" placeholder="Category" fullwidth />
-      </section>
+      </Stack>
 
       <section>
         <Heading>Are you on a budget?</Heading>
@@ -118,36 +119,40 @@ const CreateEvent = props => {
           </Stack>
         </ShadowCard>
       </section>
-
-      <IconButton
-        icon="add"
-        color="#fff"
-        primary
-        large
-        onClick={() => props.history.push('/events')}
-      >
-        Create Event
-      </IconButton>
+      <section>
+        <Link to={routes.events}>
+          <IconButton
+            icon="add"
+            color="#fff"
+            primary
+            large>
+            Create Event
+          </IconButton>
+        </Link>
+      </section>
     </Stack>
   );
 };
 
 const EventsGrid = props => {
   return (
-    <>
+    <Stack>
       <Link to={routes.createEvent}>
         <IconButton icon="add" color="#fff" primary large>
           New Project
         </IconButton>
       </Link>
-      <div className="py-5 flex" style={{ gap: '1rem' }}>
+      <GridView width={300}>
         <Link to={routes.planner(20)}>
           <ProjectCard title="Micheal's Birthday" category="kids party" />
         </Link>
         <Link to={routes.planner(12)}>
           <ProjectCard title="Rita's baby shower" category="baby shower" />
         </Link>
-      </div>
-    </>
+        <Link to={routes.planner(12)}>
+          <ProjectCard title="Rita's baby shower" category="baby shower" />
+        </Link>
+      </GridView>
+    </Stack>
   );
 };

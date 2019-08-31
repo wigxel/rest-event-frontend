@@ -1,4 +1,5 @@
 import React from 'react';
+import t from 'prop-types';
 import styled from 'styled-components';
 import { color } from '../../styles/helpers';
 import Stack from './Stack';
@@ -74,15 +75,23 @@ export const VendorGroup = props => {
   return <Display>{props.children}</Display>;
 };
 
+const addPixel = (number) => {
+  const isWithoutUnit = RegExp('\\d$').test(number);  
+return isWithoutUnit ? number + 'px' : number;
+}
+
 const Grid = styled(FourColumnGridStyle)`
   justify-content: flex-start;
-  grid-template-columns: repeat(auto-fill, ${a => a.width}px);
+  grid-template-columns: repeat(auto-fill, ${a => addPixel(a.width)});
 `;
 
 export const GridView = props => <Grid {...props} />;
 GridView.defaultProps = {
   width: 200
 };
+GridView.propTypes = {
+  width: t.string.isRequired,
+}
 
 export * from './imageHolders';
 export * from './navigations';

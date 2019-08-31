@@ -33,6 +33,7 @@ const ButtonStyle = styled.button`
 
   &:focus, &:hover:focus {
     transform: scale(.95);
+    outline: none;
   }
   
   &:hover {
