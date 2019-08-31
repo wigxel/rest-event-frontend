@@ -23,7 +23,6 @@ const ActivityStyle = styled.ul `
     }
 
     .timestamp {
-        color: orange;
         opacity: 0.7;
         font-size: smaller;
         font-style: italic;
