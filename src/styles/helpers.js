@@ -1,6 +1,13 @@
+/** This file contains helpers for the StyledComponent library for ReactJS.
+ * Styled components helpers
+ * @author Joseph Julius Owonvown
+ */
 import styled, { css } from 'styled-components';
 
+
 export const withProp = key => style => props => props[key] && style;
+
+export const propIs = prop => functor => style => props => functor(props[prop]) && style;
 
 export const CardStyle = (con = {}) => styled.article`
   padding: 18px 20px;
