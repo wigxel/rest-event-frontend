@@ -2,7 +2,7 @@ import React from 'react'
 import t from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { withProp, propIs } from '../../styles/helpers'
+import { propIs } from '../../styles/helpers'
 import Card from './Card'
 
 const ModalSize = {
@@ -14,6 +14,7 @@ const DialogStyle = styled.section`
     top: 0;
     left: 0;
     right: 0;
+    margin: 0 !important; 
     bottom: 0;
     z-index: 999;
     display: flex;
@@ -21,7 +22,7 @@ const DialogStyle = styled.section`
     position: fixed;
     justify-content: center;
     
-    .wg-dialog, .wg-modal-content, .wg-backdrop {
+    &, .wg-dialog, .wg-modal-content, .wg-backdrop {
         transition: all .3s cubic-bezier(.17, .84, .44, 1);
     }
 
@@ -59,7 +60,7 @@ const DialogStyle = styled.section`
         `)}
     }
 
-    ${withProp('show')(css`
+    ${propIs('show')(show => show === true)(css`
         visibility: visible;
 
         .wg-dialog {
