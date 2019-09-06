@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import _ from 'lodash';
 import { compose } from 'lodash/fp';
+import t from 'prop-types';
+
 import Naira from '../../assets/svgs/naira_symbol.svg';
 import { color, fullWidth } from '../../styles/helpers';
 // import { log, trace } from '../../libs/helpers';
@@ -26,13 +28,15 @@ const InputStyle = styled.div`
 
   > input {
     margin: 0;
-    text-align: right;
+    flex: 1 0;
+    max-width: calc(100% - 30px);
     font-size: 1.2rem;
-    font-family: var(--input-font);
+    text-align: right;
     line-height: 30px;
-    flex: 1;
-    border: none;
+    outline: none;
     appearance: none;
+    border: none;
+    font-family: var(--input-font);
   }
 
   ${props =>
@@ -73,7 +77,7 @@ const handleNaN = fn => value => {
 };
 export const clean = value => _.replace(String(value), /,/gm, '');
 
-const NumberInput = props => {
+const NumberInput = React.forwardRef((props, ref) => {
   const [prop, setProp] = useState({
     value: ''
   });
@@ -94,7 +98,9 @@ const NumberInput = props => {
       <img src={Naira} alt="cur" title="currency" />
       <input
         type="text"
+        name={props.name}
         placeholder="0.0"
+        ref={ref}
         value={prop.value}
         onKeyDown={evt => {
           evt.keyCode === 13 ? evt.target.blur() : validateInput(evt);
@@ -119,12 +125,19 @@ const NumberInput = props => {
       />
     </InputStyle>
   );
-};
+});
 
 NumberInput.defaultProps = {
-  isInvalid: () => {},
+  isInvalid: (message) => { 
+    throw Error(message);
+  },
   large: false,
+  name: 'wg-input',
   fullWidth: false
 };
+
+NumberInput.propTypes = {
+  isInvalid: t.func,
+}
 
 export default NumberInput;
