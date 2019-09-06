@@ -6,6 +6,7 @@ import Stack from './Stack';
 
 export * from './Tab';
 export * from './Stack';
+export * from './Cluster';
 
 const JumbotronStyle = styled.div`
   min-height: calc(100vh - 80px);
@@ -46,7 +47,7 @@ export const TwoColumns = props => {
     <>
       <div className="flex">
         <div className="w-1/5">{aside}</div>
-        <div className="flex-1 p-5">{section}</div>
+        <div className="flex-1">{section}</div>
       </div>
     </>
   );
@@ -90,7 +91,7 @@ GridView.defaultProps = {
   width: 200
 };
 GridView.propTypes = {
-  width: t.string.isRequired,
+  width: t.oneOfType([t.number, t.string]).isRequired,
 }
 
 export * from './imageHolders';

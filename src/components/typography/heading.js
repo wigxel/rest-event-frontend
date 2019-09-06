@@ -36,3 +36,8 @@ export const H4 = props => {
     </h4>
   );
 };
+
+export const Heading = props => <>
+  <H4 style={{color: '#878787'}} {...props} />
+  ---- 
+</>

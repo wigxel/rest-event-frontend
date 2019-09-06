@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card } from '../../../components/cards';
 import { Button } from '../../../components/forms'
 import { Activity } from '../../../components/lists';
-import { H1, H3, H4, P } from '../../../components/typography'
+import { Heading, H1, H3, H4, P } from '../../../components/typography'
 import { GridView, Stack, Tab } from '../../../components/layouts';
 import routes from './routes'
 
@@ -19,11 +19,6 @@ const activities = [
   'Serving client Ejowo',
   'Welcome John'
 ]
-
-const Heading = props => <>
-  <H4 style={{color: '#878787'}} {...props} />
-  ---- 
-</>
 
 export default function Home() {
   return (

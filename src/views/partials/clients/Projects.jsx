@@ -6,6 +6,7 @@ import {
   TwoColumns,
   Sidebar,
   GridView,
+  Cluster,
   Tab,
   Stack
 } from '../../../components/layouts';
@@ -38,13 +39,15 @@ export default function Projects(props) {
           </FlatList>
         </Sidebar>
         <Container>
-          <Route exact path={routes.createEvent} component={CreateEvent} />
-          <Route exact path={routes.events} component={EventsGrid} />
-          <Route
-            exact
-            path={'/dashboard/projects'}
-            component={() => <Redirect to={routes.events} />}
-          />
+          <Cluster.Small>
+            <Route exact path={routes.createEvent} component={CreateEvent} />
+            <Route exact path={routes.events} component={EventsGrid} />
+            <Route
+              exact
+              path={'/dashboard/projects'}
+              component={() => <Redirect to={routes.events} />}
+            />
+          </Cluster.Small>
         </Container>
       </TwoColumns>
     </>

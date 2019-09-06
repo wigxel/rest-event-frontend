@@ -7,9 +7,16 @@ import { H4, P } from '../../../components/typography';
 import { Card } from '../../../components/cards';
 import { FlatList } from '../../../components/lists';
 import { Input, IconButton } from '../../../components/forms';
-import { Sidebar, TwoColumns, GridView, Stack } from '../../../components/layouts';
+import {
+    Stack,
+    Cluster,
+    Sidebar,
+    GridView,
+    TwoColumns,
+} from '../../../components/layouts';
 
 const UpdateButton = (props) => <IconButton {...props} icon="add" color={'#fff'} primary>UPDATE</IconButton>
+
 const Header = props => (<Card.Header>
     <H4>{props.children}</H4>
 </Card.Header>)
@@ -58,12 +65,12 @@ const Settings = () => {
                     <FlatList.Link to={routes.projects}>Billing & Subscription</FlatList.Link>
                 </FlatList>
             </Sidebar>
-            <section>
+            <Cluster.Small>
                 <Route exact path={routes.general} component={General}/>
                 <Route path={'/somewhere'} component={General}/>
                 <Route exact path={routes.settings} 
                     component={() => <Redirect to={routes.general} />}/>
-            </section>
+            </Cluster.Small>
         </TwoColumns>
     )
 }
