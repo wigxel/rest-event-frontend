@@ -1,5 +1,7 @@
 import React from 'react';
+import t from 'prop-types';
 import styled, { css } from 'styled-components';
+
 import MaterialIcon from 'material-icons-react';
 import { filterKeys } from '../../libs/helpers';
 import { fullWidth, withProp, color } from '../../styles/helpers';
@@ -7,7 +9,7 @@ import { fullWidth, withProp, color } from '../../styles/helpers';
 const ButtonStyle = styled.button`
   --theme-color: ${color('accent')};
   background-color: ${color('accent')};
-  padding: .7rem 15px;
+  padding: .7rem 1.8rem;
   white-space: nowrap;
   font-size: 13px;
   align-items: center;
@@ -57,7 +59,7 @@ const ButtonStyle = styled.button`
   `)}
 
   ${withProp('large')(css`
-    padding: 1rem 30px;
+    padding: 1rem 2rem;
   `)}
 
   ${withProp('circle')(css`
@@ -77,9 +79,7 @@ const ButtonStyle = styled.button`
   ${fullWidth()}
 `;
 
-export const Button = props => {
-  return <ButtonStyle {...props}>{props.children}</ButtonStyle>;
-};
+export const Button = ButtonStyle
 
 const iconProps = props => filterKeys(props, ['color', 'icon']);
 
@@ -91,6 +91,10 @@ export const IconButton = props => {
     </Button>
   );
 };
+
+IconButton.propTypes = {
+  children: t.node.isRequired,
+}
 
 export const CircleButton = props => {
   return (
