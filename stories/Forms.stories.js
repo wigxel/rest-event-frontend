@@ -12,7 +12,7 @@ import {
 } from '../src/components/forms';
 import { log, trace } from '../src/libs/helpers';
 
-storiesOf('Form Elements', module)
+storiesOf('Form', module)
   .add('Inputs Fields', () => (
     <Theme>
       <section>
