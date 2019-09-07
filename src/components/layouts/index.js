@@ -70,11 +70,22 @@ export const FourColumnGrid = props => {
 };
 
 export const VendorGroup = props => {
-  const Display = props.grid
-    ? FourColumnGridStyle
-    : ({ children }) => <Stack>{children}</Stack>;
-  return <Display>{props.children}</Display>;
+  return( <>
+    {props.grid
+      ? <FourColumnGrid {...props} />
+      : <Stack {...props} />}
+  </>)
 };
+
+VendorGroup.defaultProps = {
+  grid: false,
+  stack: true,
+}
+
+VendorGroup.propTypes = {
+  grid: t.bool,
+  stack: t.bool,
+}
 
 const addPixel = (number) => {
   const isWithoutUnit = RegExp('\\d$').test(number);  
@@ -96,3 +107,4 @@ GridView.propTypes = {
 
 export * from './imageHolders';
 export * from './navigations';
+export * from './Outline';

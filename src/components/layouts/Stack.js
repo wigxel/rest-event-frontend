@@ -9,15 +9,26 @@ const propSizes = [
 ]
 
 const StackStyle = styled.div`
+  padding: 0.1px 0;
+  
+  ${withProp('noExtraSpace')(css`
+    > * {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  `)}
+
   > * + * {
     margin-top: 1rem;
   }
 
   ${propSizes.map(([prop, size]) => withProp(prop)(css`
+
     > * + * {
       margin-top:  ${size};
     }
   `))}
+
 `;
 
 export const Stack = props => {
